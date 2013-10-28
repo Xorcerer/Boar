@@ -86,6 +86,12 @@ namespace LoganZhou.Boar
             array[zeroIndex] = value;
         }
 
+        public static void InsertToZeroSlot(this sbyte[] array, sbyte value)
+        {
+            int zeroIndex = ArrayExtensions.FindIndex(array, e => e == 0);
+            array[zeroIndex] = value;
+        }
+
         #endregion
     }
 }
