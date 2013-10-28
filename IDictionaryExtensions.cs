@@ -62,7 +62,7 @@ namespace LoganZhou.Boar
                                               TKey key,
                                               int decrement)
         {
-            dictionary.AddOrIncrease(key, -decrement);
+            return dictionary.AddOrIncrease(key, -decrement);
         }
     
     }
