@@ -1,0 +1,18 @@
+# Mono Develop / Visual Studio
+bin/
+obj/
+*.userprefs
+*.suo
+test-results/
+
+# Python
+*.pyc
+*.pyo
+
+# emacs
+.#*
+.ropeproject/
+
+# VIM
+*.swp
+
