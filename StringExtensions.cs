@@ -8,6 +8,11 @@ namespace LoganZhou.Boar
         {
             return string.Format(str, objs);
         }
+
+        public static T ToEnum<T>(this string str)
+        {
+            return (T)Enum.Parse(typeof(T), str, ignoreCase: false);
+        }
     }
 }
 
