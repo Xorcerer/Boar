@@ -32,7 +32,7 @@ namespace LoganZhou.Boar
         public static void InsertToEmptySlot<T>(this T[] array, T value)
             where T : class
         {
-            int nullIndex = ArrayExtensions.FindIndex(array, e => e == default(T));
+            int nullIndex = array.FindIndex(e => e == default(T));
             array[nullIndex] = value;
         }
 
@@ -46,49 +46,49 @@ namespace LoganZhou.Boar
         /// <exception cref="ArgumentOutOfRangeException">Throw if 0 slot not found.</exception>
         public static void InsertToZeroSlot(this int[] array, int value)
         {
-            int zeroIndex = ArrayExtensions.FindIndex(array, e => e == 0);
+            int zeroIndex = array.FindIndex(e => e == 0);
             array[zeroIndex] = value;
         }
 
         public static void InsertToZeroSlot(this long[] array, long value)
         {
-            int zeroIndex = ArrayExtensions.FindIndex(array, e => e == 0);
+            int zeroIndex = array.FindIndex(e => e == 0);
             array[zeroIndex] = value;
         }
 
         public static void InsertToZeroSlot(this short[] array, short value)
         {
-            int zeroIndex = ArrayExtensions.FindIndex(array, e => e == 0);
+            int zeroIndex = array.FindIndex(e => e == 0);
             array[zeroIndex] = value;
         }
       
         public static void InsertToZeroSlot(this uint[] array, uint value)
         {
-            int zeroIndex = ArrayExtensions.FindIndex(array, e => e == 0);
+            int zeroIndex = array.FindIndex(e => e == 0);
             array[zeroIndex] = value;
         }
 
         public static void InsertToZeroSlot(this ulong[] array, ulong value)
         {
-            int zeroIndex = ArrayExtensions.FindIndex(array, e => e == 0);
+            int zeroIndex = array.FindIndex(e => e == 0);
             array[zeroIndex] = value;
         }
 
         public static void InsertToZeroSlot(this ushort[] array, ushort value)
         {
-            int zeroIndex = ArrayExtensions.FindIndex(array, e => e == 0);
+            int zeroIndex = array.FindIndex(e => e == 0);
             array[zeroIndex] = value;
         }
 
         public static void InsertToZeroSlot(this byte[] array, byte value)
         {
-            int zeroIndex = ArrayExtensions.FindIndex(array, e => e == 0);
+            int zeroIndex = array.FindIndex(e => e == 0);
             array[zeroIndex] = value;
         }
 
         public static void InsertToZeroSlot(this sbyte[] array, sbyte value)
         {
-            int zeroIndex = ArrayExtensions.FindIndex(array, e => e == 0);
+            int zeroIndex = array.FindIndex(e => e == 0);
             array[zeroIndex] = value;
         }
 
