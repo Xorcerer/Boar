@@ -43,6 +43,7 @@
     <Compile Include="IDictionaryExtensions.cs" />
     <Compile Include="StringExtensions.cs" />
     <Compile Include="IntsExtensions.cs" />
+    <Compile Include="RandomExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
