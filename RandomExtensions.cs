@@ -44,6 +44,26 @@ namespace LoganZhou.Boar
             return array[random.Next(offset, maxOffset)];
         }
 
+		/// <summary>
+		/// Shuffle the specified array INPLACE.
+		/// Algo by Donald E. Knuth.
+		/// </summary>
+		/// <param name="random">Random.</param>
+		/// <param name="array">Array.</param>
+		/// <typeparam name="T">The type of Array.</typeparam>
+		public static void Shuffle<T>(this Random random, T[] array)
+		{
+			if (array == null)
+				throw new ArgumentNullException("array");
+
+			for (int i = array.Length - 1; i > 0; i--)
+			{
+				int j = random.Next(i);
+				T temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
+			}
+		}
    }
 }
 
