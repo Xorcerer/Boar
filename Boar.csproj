@@ -38,12 +38,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ArrayExtensions.cs" />
-    <Compile Include="DateTimeExtensions.cs" />
-    <Compile Include="IDictionaryExtensions.cs" />
-    <Compile Include="StringExtensions.cs" />
-    <Compile Include="IntsExtensions.cs" />
-    <Compile Include="RandomExtensions.cs" />
+    <Compile Include="RandomByWeight.cs" />
+    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\RandomExtensions.cs" />
+    <Compile Include="Extensions\IDictionaryExtensions.cs" />
+    <Compile Include="Extensions\IntsExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
 </Project>
