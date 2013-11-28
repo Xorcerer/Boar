@@ -45,9 +45,12 @@
     <Compile Include="Extensions\IDictionaryExtensions.cs" />
     <Compile Include="Extensions\IntsExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="MessageDispatcher\MessageDispatcher.cs" />
+    <Compile Include="MessageDispatcher\MessageHandlerAttribute.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Extensions\" />
+    <Folder Include="MessageDispatcher\" />
   </ItemGroup>
 </Project>
