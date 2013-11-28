@@ -54,6 +54,10 @@ namespace Camp.HogRider
 
         #region Dispatching
 
+        /// <summary>
+        /// Dispatchs the message immediately.
+        /// </summary>
+        /// <param name="message">Message.</param>
 		public void DispatchMessage(object message)
 		{
 			Action<object> callback;
@@ -82,7 +86,7 @@ namespace Camp.HogRider
         /// <summary>
         /// Dispatch received messages to registered handlers, thread-safe.
         /// </summary>
-        public void Dispatch()
+        public void DispatchQueuedMessages()
         {
             object[] messages;
             lock (m_queue)
