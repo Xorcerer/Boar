@@ -22,8 +22,6 @@ namespace Camp.HogRider
             }
         }
 
-		public 
-
         #region Registration
 
         public void RegisterHandlerHost(object host, bool inherit = true)
