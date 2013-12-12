@@ -52,7 +52,7 @@ namespace LoganZhou.Boar
                                            TKey key,
                                            int increment) 
         {
-            var count = dictionary.GetOrAdd(key, 0);
+			var count = dictionary.GetOrDefault(key, 0);
             var newCount = count + increment;
             dictionary[key] = newCount;
             return newCount;
