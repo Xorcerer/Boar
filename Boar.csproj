@@ -48,6 +48,7 @@
     <Compile Include="MessageDispatcher\MessageDispatcher.cs" />
     <Compile Include="MessageDispatcher\MessageHandlerAttribute.cs" />
     <Compile Include="Extensions\TaskExtensions.cs" />
+    <Compile Include="ThreadSafeRandom.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup />
