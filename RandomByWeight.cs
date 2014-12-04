@@ -49,14 +49,14 @@ namespace LoganZhou.Boar
             }
         }
 
-        Random m_random = new Random();
+        Random _random = new Random();
 
         // TODO: Better name.
-		readonly List<RangeNode> m_weights = new List<RangeNode>();
+		readonly List<RangeNode> _weights = new List<RangeNode>();
 
-        public bool Empty { get { return m_weights.Count == 0; } }
+        public bool Empty { get { return _weights.Count == 0; } }
 
-		public int WeightSum { get { return m_weights.Count == 0 ? 0 : m_weights[m_weights.Count - 1].UpperBoundary; } }
+		public int WeightSum { get { return _weights.Count == 0 ? 0 : _weights[_weights.Count - 1].UpperBoundary; } }
 
         public void Add(T item, int weight)
         {
@@ -70,20 +70,20 @@ namespace LoganZhou.Boar
 				UpperBoundary = prevSum + weight,
 				Value = item,
 			};
-			m_weights.Add(rangeNode);
+			_weights.Add(rangeNode);
         }
 
         public T Next()
         {
-            int weight = m_random.Next(1, WeightSum);
+            int weight = _random.Next(1, WeightSum);
             return GetByGivenWeight(weight);
         }
 
         T GetByGivenWeight(int weight)
         {
 			var target = RangeNode.CreateTarget(weight);
-			int index = m_weights.BinarySearch(target, new Comparer());
-			return m_weights[index].Value;
+			int index = _weights.BinarySearch(target, new Comparer());
+			return _weights[index].Value;
         }
     }
 }
