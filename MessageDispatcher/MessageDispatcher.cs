@@ -7,8 +7,8 @@ namespace Camp.HogRider
 {
     public class MessageDispatcher
     {
-        Queue<object> m_queue = new Queue<object>();
-        Dictionary<Type, Action<object>> m_callbacks = new Dictionary<Type, Action<object>>();
+        Queue<object> _queue = new Queue<object>();
+        Dictionary<Type, Action<object>> _callbacks = new Dictionary<Type, Action<object>>();
 
         /// <summary>
         /// Push the specified message, thread-safe.
@@ -16,9 +16,9 @@ namespace Camp.HogRider
         /// <param name="message">Message.</param>
         public void Push(object message)
         {
-            lock (m_queue)
+            lock (_queue)
             {
-                m_queue.Enqueue(message);
+                _queue.Enqueue(message);
             }
         }
 
@@ -35,18 +35,18 @@ namespace Camp.HogRider
                     throw new ArgumentException("Method '{0}' should accept and only accept 1 argument.", m.Name);
 
                 Type messageType = m.GetParameters().Single().ParameterType;
-                m_callbacks[messageType] = o => m.Invoke(host, new [] { o });
+                _callbacks[messageType] = o => m.Invoke(host, new [] { o });
             }
         }
 
         public void RegisterHandler<T>(Action<T> callback)
         {
-            m_callbacks[typeof(T)] = o => callback((T)o);
+            _callbacks[typeof(T)] = o => callback((T)o);
         }
 
         public void ClearAllRegistrations()
         {
-            m_callbacks.Clear();
+            _callbacks.Clear();
         }
         #endregion Registration
 
@@ -59,7 +59,7 @@ namespace Camp.HogRider
 		public void DispatchMessage(object message)
 		{
 			Action<object> callback;
-			if (m_callbacks.TryGetValue(message.GetType(), out callback))
+			if (_callbacks.TryGetValue(message.GetType(), out callback))
 				callback(message);
 			else
 			{
@@ -75,9 +75,9 @@ namespace Camp.HogRider
         /// <exception cref="InvalidOperationException">Throw while the queue is empty.</exception>
         public object Pop()
         {
-            lock (m_queue)
+            lock (_queue)
             {
-                return m_queue.Dequeue();
+                return _queue.Dequeue();
             }
         }
 
@@ -87,15 +87,15 @@ namespace Camp.HogRider
         public void DispatchQueuedMessages()
         {
             object[] messages;
-            lock (m_queue)
+            lock (_queue)
             {
-                int messageCount = m_queue.Count;
+                int messageCount = _queue.Count;
                 if (messageCount == 0)
                     return;
 
                 messages = new object[messageCount];
                 for (int i = 0; i < messageCount; i++)
-                    messages[i] = m_queue.Dequeue();
+                    messages[i] = _queue.Dequeue();
             }
 
             foreach (var m in messages)
